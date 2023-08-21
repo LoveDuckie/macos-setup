@@ -3,7 +3,7 @@
 
    LDK \ Shell Scripts \ macOS \ Setup Sudoers
 
-   
+   A script for updating sudoers on the system.
 
 EOF
 CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath $0))}
@@ -29,7 +29,7 @@ configure_sudoers() {
     return 0
 }
 
-ldk_write_info "setup-sudoers" "checking sudoers configuration..."
+write_info "setup-sudoers" "checking sudoers configuration..."
 if is_sudoers_configured; then
     write_warning "setup-sudoers" "sudoers already configured!"
     exit 0
