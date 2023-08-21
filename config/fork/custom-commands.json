@@ -1,0 +1,45 @@
+[
+    {
+      "version" : 1
+    },
+    {
+      "name": "Open in Rider",
+      "action": {
+        "type": "sh",
+        "script": "~/Library/Application\\ Support/JetBrains/Toolbox/scripts/rider .",
+        "showOutput": false,
+        "waitForExit": true
+      },
+      "target": "repository"
+    },
+    {
+      "target": "repository",
+      "name": "Open in WebStorm",
+      "action": {
+        "showOutput": false,
+        "type": "sh",
+        "waitForExit": true,
+        "script": "~/Library/Application\\ Support/JetBrains/Toolbox/scripts/webstorm ."
+      }
+    },
+    {
+      "target": "repository",
+      "name": "Open in PHPStorm",
+      "action": {
+        "showOutput": false,
+        "type": "sh",
+        "waitForExit": true,
+        "script": "~/Library/Application\\ Support/JetBrains/Toolbox/scripts/phpstorm ."
+      }
+    },
+    {
+      "target": "repository",
+      "name": "Open in PyCharm",
+      "action": {
+        "showOutput": false,
+        "type": "sh",
+        "waitForExit": true,
+        "script": "~/Library/Application\\ Support/JetBrains/Toolbox/scripts/pycharm ."
+      }
+    }
+  ]
