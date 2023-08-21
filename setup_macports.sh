@@ -15,7 +15,7 @@ write_header
 
 MACPORTS_PKG_INSTALLER_PATH=https://github.com/macports/macports-base/releases/download/v2.8.1/MacPorts-2.8.1-13-Ventura.pkg
 write_info "setup_macports" "Installing MacPorts"
-curl -L -f "https://github.com/macports/macports-base/releases/download/v2.8.1/MacPorts-2.8.1-13-Ventura.pkg" --silent --output ~/Downloads/macports.pkg
+curl -L -f "$MACPORTS_PKG_INSTALLER_PATH" --silent --output ~/Downloads/macports.pkg
 if ! write_response "setup_macports" "Download MacPorts: PKG"; then
     write_error "setup_macports" "Failed: unable to download the MacPorts installer package."
 fi

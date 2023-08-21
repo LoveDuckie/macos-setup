@@ -31,4 +31,9 @@ for config_file in ${CONFIG_FILES[@]}; do
     fi
 done
 
+write_info "setup_nvm" "Installing: NodeJS Stable Latest"
+nvm install --lts
+write_info "setup_nvm" "Installing: Angular CLI"
+npm install -g @angular/cli
+
 write_success "setup_nvm" "done"

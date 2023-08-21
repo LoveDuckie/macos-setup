@@ -13,10 +13,16 @@ export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}
 . "$SHARED_EXT_SCRIPTS_PATH/shared_functions.sh"
 write_header
 
+if ! is_command_available python; then
+    write_error "setup_poetry" "Python is not installed on this system. Unable to continue."
+    return 1
+fi
 if is_command_available poetry; then
     write_error "setup_poetry" "Poetry appears to already be installed on this system."
     return 1
 fi
+
+curl -sSL https://install.python-poetry.org | python3 -
 
 write_success "setup_poetry" "done"
 return 0

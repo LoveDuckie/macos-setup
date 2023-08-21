@@ -13,6 +13,13 @@ export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}
 . "$SHARED_EXT_SCRIPTS_PATH/shared_functions.sh"
 write_header
 
+if ! is_command_available pyenv; then
+    write_error "setup_pyenv" "pyenv has not yet been installed on this system."
+    exit 1
+fi
+
+DEFAULT_PYTHON_VERSION=3.11
+
 PYENV_CONFIG=$(
    cat <<'EOF'
 export PYENV_ROOT="$HOME/.pyenv"
@@ -32,6 +39,12 @@ for config_file in ${CONFIG_FILES[@]}; do
         continue
     fi
 done
+
+write_info "setup_pyenv" "Reloading: pyenv"
+. ~/.zprofile
+
+write_info "setup_pyenv" "Installing: Python $DEFAULT_PYTHON_VERSION"
+pyenv install $DEFAULT_PYTHON_VERSION
 
 write_success "setup_pyenv" "done"
 return 0
