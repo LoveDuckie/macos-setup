@@ -1,12 +1,12 @@
 #!/bin/bash
 <<EOF
 
-   LDK \ Shell Scripts \ macOS \ Setup PYENV
+   LDK \ Shell Scripts \ macOS \ Setup PyEnv
 
-   Setup PYENV terminal
+   Setup PyEnv terminal
 
 EOF
-CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath $0))}
+CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):-%x}}))}
 export SHARED_EXT_SCRIPTS_PATH=${SHARED_EXT_SCRIPTS_PATH:-$(realpath $CURRENT_SCRIPT_DIRECTORY/)}
 export CURRENT_SCRIPT_FILENAME=${CURRENT_SCRIPT_FILENAME:-$(basename $0)}
 export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}

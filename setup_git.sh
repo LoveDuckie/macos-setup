@@ -6,7 +6,7 @@
    A script for configuring Git.
 
 EOF
-CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath $0))}
+CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):-%x}}))}
 export SHARED_EXT_SCRIPTS_PATH=${SHARED_EXT_SCRIPTS_PATH:-$(realpath $CURRENT_SCRIPT_DIRECTORY/)}
 export CURRENT_SCRIPT_FILENAME=${CURRENT_SCRIPT_FILENAME:-$(basename $0)}
 export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}
@@ -29,7 +29,7 @@ git config --global user.name "Luc Shelton"
 git config --global user.email "lucshelton@gmail.com"
 git config --global commit.template ~/.gitmessage.txt
 
-write_info "setup_git" "Displaying global configuration options"
+write_info "setup_git" "Git Configuration (Global):"
 git config --global --list
 
 write_success "setup_git" "Done"

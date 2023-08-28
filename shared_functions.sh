@@ -24,6 +24,16 @@ type -f is_command_available >/dev/null 2>&1 && unset -f is_command_available
 
 export OPTIONS_LOG_SHOW_HEADER=1
 
+reload_profile() {
+    if [[ $SHELL == *"zsh"* ]]; then
+        return 1
+    elif [[ $SHELL == *"bash"* ]]; then
+        return 1
+    fi
+    
+    return 0
+}
+
 is_mac() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         return 0

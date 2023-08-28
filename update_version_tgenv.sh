@@ -1,9 +1,9 @@
 #!/bin/bash
 <<EOF
 
-   LDK \ Shell Scripts \ macOS \ Setup iTerm2
+   LDK \ Shell Scripts \ Setup \ Update Version tgenv
 
-   Restore the configuration for iTerm2
+   
 
 EOF
 CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):-%x}}))}
@@ -13,12 +13,12 @@ export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}
 . "$SHARED_EXT_SCRIPTS_PATH/shared_functions.sh"
 write_header
 
-if [ ! -e $CURRENT_SCRIPT_DIRECTORY/config/iterm2/com.googlecode.iterm2.plist ]; then
-   write_error "setup_iterm2" "Failed: Unable to find the preference file for iTerm2."
-   exit 1
+TGENV_VERSION_FILE_PATH=$CURRENT_SCRIPT_DIRECTORY/config/tgenv/version
+
+INSTALLED_VERSION=$(tgenv list | sed -nE 's/\* ([0-9]+\.[0.9]+\.[0-9]+) .*/\1/p')
+
+if [[ "$INSTALLED_VERSION" != "" ]]; then
+    write_info "update_version_tgenv" "Updating: \"$TGENV_VERSION_FILE_PATH\""
 fi
 
-write_info "setup_iterm2" "Restoring: Configuration for iTerm2"
-
-write_success "setup_iterm2" "Done"
-exit 0
+write_success "update_version_tgenv" "Done"
