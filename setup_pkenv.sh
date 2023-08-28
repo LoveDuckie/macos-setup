@@ -3,7 +3,7 @@
 
    LDK \ Shell Scripts \ Setup \ pkenv
 
-   
+   Install and configure "pkenv" on this system.
 
 EOF
 CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):-%x}}))}

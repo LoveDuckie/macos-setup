@@ -12,15 +12,21 @@ CURRENT_SCRIPT_DIRECTORY_FUNCTIONS=$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):
 export SHARED_EXT_SCRIPTS_PATH=$(realpath ${SHARED_EXT_SCRIPTS_PATH:-$CURRENT_SCRIPT_DIRECTORY_FUNCTIONS})
 export REPO_ROOT_PATH=${REPO_ROOT_PATH:-$(realpath $SHARED_EXT_SCRIPTS_PATH/../../)}
 
-type -f write_info >/dev/null 2>&1 && unset -f write_info
-type -f write_error >/dev/null 2>&1 && unset -f write_error
-type -f write_success >/dev/null 2>&1 && unset -f write_success
-type -f write_critical >/dev/null 2>&1 && unset -f write_critical
-type -f write_response >/dev/null 2>&1 && unset -f write_response
-type -f write_warning >/dev/null 2>&1 && unset -f write_warning
-type -f write_header >/dev/null 2>&1 && unset -f write_header
-type -f write_header_sub >/dev/null 2>&1 && unset -f write_header_sub
-type -f is_command_available >/dev/null 2>&1 && unset -f is_command_available
+type -f is_command_available >/dev/null 2>&1 && unset -f is_command_available 
+type -f is_mac >/dev/null 2>&1 && unset -f is_mac 
+type -f is_mac_arm >/dev/null 2>&1 && unset -f is_mac_arm 
+type -f is_mac_x86 >/dev/null 2>&1 && unset -f is_mac_x86 
+type -f is_ubuntu >/dev/null 2>&1 && unset -f is_ubuntu 
+type -f is_wsl >/dev/null 2>&1 && unset -f is_wsl 
+type -f reload_profile >/dev/null 2>&1 && unset -f reload_profile 
+type -f write_critical >/dev/null 2>&1 && unset -f write_critical 
+type -f write_error >/dev/null 2>&1 && unset -f write_error 
+type -f write_header >/dev/null 2>&1 && unset -f write_header 
+type -f write_header_sub >/dev/null 2>&1 && unset -f write_header_sub 
+type -f write_info >/dev/null 2>&1 && unset -f write_info 
+type -f write_response >/dev/null 2>&1 && unset -f write_response 
+type -f write_success >/dev/null 2>&1 && unset -f write_success 
+type -f write_warning >/dev/null 2>&1 && unset -f write_warning 
 
 export OPTIONS_LOG_SHOW_HEADER=1
 
@@ -151,11 +157,18 @@ is_command_available() {
     return 0
 }
 
-export -f write_info
-export -f write_error
-export -f write_success
-export -f write_response
+export -f is_command_available
+export -f is_mac
+export -f is_mac_arm
+export -f is_mac_x86
+export -f is_ubuntu
+export -f is_wsl
+export -f reload_profile
 export -f write_critical
-export -f write_warning
+export -f write_error
 export -f write_header
 export -f write_header_sub
+export -f write_info
+export -f write_response
+export -f write_success
+export -f write_warning

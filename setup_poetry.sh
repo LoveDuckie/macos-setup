@@ -19,10 +19,11 @@ if ! is_command_available python; then
 fi
 if is_command_available poetry; then
     write_error "setup_poetry" "Poetry appears to already be installed on this system."
-    return 1
+    return 2
 fi
 
-curl -sSL https://install.python-poetry.org | python3 -
+write_info "setup_poetry" "Installing: Poetry"
+curl -sSL https://install.python-poetry.org | python -
 
 write_success "setup_poetry" "done"
 return 0

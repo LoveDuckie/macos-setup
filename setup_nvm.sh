@@ -3,7 +3,7 @@
 
    LDK \ Shell Scripts \ macOS \ Setup NVM
 
-   Setup NVM terminal
+   Install and configure NVM on this system.
 
 EOF
 CURRENT_SCRIPT_DIRECTORY=${CURRENT_SCRIPT_DIRECTORY:-$(dirname $(realpath ${BASH_SOURCE[0]:-${(%):-%x}}))}
