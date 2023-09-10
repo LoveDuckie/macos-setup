@@ -19,7 +19,7 @@ setup_zsh.sh setup_iterm2.sh setup_goenv.sh)
 
 for script in setup*.sh; do
     write_info "setup" "Running \"$script\""
-    
+    . $CURRENT_SCRIPT_DIRECTORY/$script
 done
 
 write_success "setup" "Done"

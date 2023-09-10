@@ -15,15 +15,23 @@ write_header
 
 if ! is_command_available python; then
     write_error "setup_poetry" "Python is not installed on this system. Unable to continue."
-    return 1
+    exit 1
 fi
+
 if is_command_available poetry; then
     write_error "setup_poetry" "Poetry appears to already be installed on this system."
-    return 2
+    exit 2
 fi
 
 write_info "setup_poetry" "Installing: Poetry"
 curl -sSL https://install.python-poetry.org | python -
 
+. ~/.profile
+
+if ! is_command_available poetry; then
+    write_error "setup_poetry" "Failed: Unable to install Poetry"
+    exit 3
+fi
+
 write_success "setup_poetry" "done"
-return 0
+exit 0
