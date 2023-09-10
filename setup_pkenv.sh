@@ -17,8 +17,9 @@ write_info "setup_pkenv" "Installing: Packer with \"pkenv\""
 
 LATEST_VERSION=$(pkenv list-remote | head -n 1)
 
-
+write_info "setup_pkenv" "Installing Packer $LATEST_VERSION"
 pkenv install $LATEST_VERSION
+write_info "setup_pkenv" "Using Packer $LATEST_VERSION"
 pkenv use $LATEST_VERSION
 
 write_success "setup_pkenv" "Done"

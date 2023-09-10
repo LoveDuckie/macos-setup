@@ -13,11 +13,13 @@ export CURRENT_SCRIPT_FILENAME_BASE=${CURRENT_SCRIPT_FILENAME%.*}
 . "$SHARED_EXT_SCRIPTS_PATH/shared_functions.sh"
 write_header
 
-SETUP_SCRIPTS=(setup_homebrew.sh setup_fonts.sh setup_ssh.sh setup_pyenv.sh setup_poetry.sh)
+SETUP_SCRIPTS=(setup_homebrew.sh setup_fonts.sh setup_ssh.sh setup_sudoers.sh
+    setup_pyenv.sh setup_poetry.sh setup_nvm.sh setup_macports.sh setup_macports_php.sh
+setup_zsh.sh setup_iterm2.sh setup_goenv.sh)
 
 for script in setup*.sh; do
-   write_info "setup" "Running \"$script\""
-
+    write_info "setup" "Running \"$script\""
+    
 done
 
 write_success "setup" "Done"

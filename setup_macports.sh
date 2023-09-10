@@ -28,5 +28,11 @@ if ! write_response "setup_macports" "Install: MacPorts"; then
     write_error "setup_macports" "Package: \"$MACPORTS_PKG_DOWNLOAD_PATH\""
 fi
 
+if ! is_command_available port; then
+    write_error "setup_macports" "Failed: Unable to install MacPorts"
+    exit 1
+fi
+
+
 write_success "setup_macports" "Done"
 exit 0
